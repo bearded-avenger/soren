@@ -7,8 +7,11 @@ class sorenThemeFunctions {
 	public function __construct(){
 
 		// Set some constants
-		define('SOREN_THEME_DIR', dirname(__FILE__));
+		define('SOREN_THEME_DIR', get_template_directory());
 		define('SOREN_THEME_URL', get_template_directory_uri());
+
+		define('SOREN_CHILD_DIR', get_stylesheet_directory());
+		define('SOREN_CHILD_URL', get_stylesheet_directory_uri());
 
 		// Includes]
 		require_once(SOREN_THEME_DIR.'/inc/sidebars.php');
