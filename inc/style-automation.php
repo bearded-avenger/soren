@@ -36,7 +36,6 @@ class sorenStyleAutomation {
 
     	return apply_filters('soren_less_vars',$vars);
 
-    	var_dump($vars);
 	}
 
 	public function width(){
