@@ -1,0 +1,47 @@
+
+
+// threaded comments
+ol.commentlist { list-style:none; margin:0 0 1em; padding:0; text-indent:0; }
+ol.commentlist li { }
+ol.commentlist li.alt { }
+ol.commentlist li.bypostauthor {}
+ol.commentlist li.byuser {}
+ol.commentlist li.comment { padding:15px;margin-bottom:20px; }
+ol.commentlist li div.comment-author {}
+ol.commentlist li div.vcard { text-align: center;}
+ol.commentlist li div.vcard cite.fn { text-transform: uppercase;font-size:12px;line-height:16px;display: block; }
+ol.commentlist li div.vcard cite.fn a.url {}
+ol.commentlist li div.vcard img.avatar { border:1px solid @baseContrast; margin:0 auto 10px; .img-circle();}
+ol.commentlist li div.vcard img.avatar-32 {}
+ol.commentlist li div.vcard img.photo {}
+ol.commentlist li div.vcard span.says {}
+ol.commentlist li div.comment-metadata {font-size:@soren-font-size - 2;}
+ol.commentlist li div.comment-meta { text-align: center; }
+ol.commentlist li div.comment-meta a {  }
+ol.commentlist li p { margin:0 0 1em; }
+ol.commentlist li ul { font-size:11px; list-style:square; margin:0 0 1em 2em; }
+ol.commentlist li div.reply { font-size:11px; }
+ol.commentlist li div.reply a { font-weight:bold; }
+ol.commentlist li ul.children { list-style:none; margin:1em 0 0; text-indent:0; .avatar {max-width:50px;}}
+ol.commentlist li ul.children li {}
+ol.commentlist li ul.children li.alt {}
+ol.commentlist li ul.children li.bypostauthor {}
+ol.commentlist li ul.children li.byuser {}
+ol.commentlist li ul.children li.comment {}
+ol.commentlist li ul.children li.comment-author-admin {}
+ol.commentlist li ul.children li.depth-2 { border-left:1px solid @baseContrast; margin:0 0 .25em .25em; }
+ol.commentlist li ul.children li.depth-3 { border-left:1px solid darken(@baseContrast,5); margin:0 0 .25em .25em; }
+ol.commentlist li ul.children li.depth-4 { border-left:1px solid darken(@baseContrast,10); margin:0 0 .25em .25em; }
+ol.commentlist li ul.children li.depth-5 {}
+ol.commentlist li ul.children li.odd {}
+ol.commentlist li.even { background:@baseContrastSlight; }
+ol.commentlist li.odd { background:darken(@baseContrastSlight,5); }
+ol.commentlist li.parent { border-left:1px solid @baseContrast; }
+ol.commentlist li.pingback { border-bottom:1px solid @baseContrast; padding:1em; }
+ol.commentlist li.thread-alt { }
+ol.commentlist li.thread-even {}
+ol.commentlist li.thread-odd {}
+
+.soren-content .commentlist .comment.comment-author-admin {
+    border-left:2px solid @soren-link-color;
+}
