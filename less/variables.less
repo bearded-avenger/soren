@@ -3,12 +3,11 @@
 // --------------------------------------------------
 
 @base:                   @soren-bg-color;// cusotm less var
-@baseContrast:           lighten( @base, @invert-light);
-@baseContrastSlight:     lighten( @base, @invert-light*.4);
+@baseContrast:           lighten( @soren-bg-color, @invert-light);
+@baseContrastSlight:     lighten( @soren-bg-color, @invert-light*.4);
 
-@flip-back:               contrast(@base, darken(@base,50), lighten(@base, 25), 50%);
- 
-@flip-text:               contrast(@base,lighten(@soren-text-color,20), darken(@soren-text-color,20), 50%);
+@flip-back:               contrast(@soren-bg-color, darken(@soren-bg-color,50), lighten(@soren-bg-color, 25), 50%);
+@flip-text:               contrast(@soren-bg-color,lighten(@soren-text-color,20), darken(@soren-text-color,20), 50%);
 
 // Global values
 // --------------------------------------------------
@@ -34,7 +33,7 @@
 // Scaffolding
 // -------------------------
 
-@body-bg:               @base;
+@body-bg:               @soren-bg-color;
 @text-color:            @soren-text-color;
 
 // Links
@@ -54,6 +53,7 @@
 @font-size-base:          @soren-font-size;
 @font-size-large:         ceil(@font-size-base * 1.25); // ~18px
 @font-size-small:         ceil(@font-size-base * 0.85); // ~12px
+@font-size-xsmall:        ceil(@font-size-base * 0.7); // ~12px
 
 @font-size-h1:            floor(@font-size-base * 2.6); // ~36px
 @font-size-h2:            floor(@font-size-base * 2.15); // ~30px
