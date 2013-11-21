@@ -2,7 +2,7 @@
 
 get_header();
 
-?><section id="container" class="soren-content"><?php
+?><main id="container" class="soren-content"><?php
 
 	if ( have_posts() ) :
 
@@ -22,6 +22,6 @@ get_header();
 
 	endif;
 
-?></section><?php
+?></main><?php
 
 get_footer();

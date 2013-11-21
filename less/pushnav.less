@@ -2,8 +2,7 @@
     position: fixed;
     top:30px;
     left:30px;
-    color:@soren-bg-color;
-    background:#282828;
+    line-height: 1em;
     &:hover {
         cursor: pointer;
     }
@@ -24,6 +23,15 @@
     box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
     overflow: auto;
     -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
+
+    .sub-menu {
+        list-style-type:none;
+        padding:0;
+
+        li a{
+            padding-left:50px;
+        }
+    }
 }
 
 .pushy a{
