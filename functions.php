@@ -2,11 +2,11 @@
 
 class sorenThemeFunctions {
 
-	const version = '0.9.1';
-
 	public function __construct(){
 
 		// Set some constants
+		define('SOREN_THEME_VERSION', '0.5');
+
 		define('SOREN_THEME_DIR', get_template_directory());
 		define('SOREN_THEME_URL', get_template_directory_uri());
 
@@ -42,7 +42,6 @@ class sorenThemeFunctions {
 		add_action('init', 				array($this,'image_sizes'),2);
 		add_filter('body_class',		array($this,'browser_body_class'));
 	}
-
 
 
 	public function nav(){

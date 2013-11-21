@@ -2,7 +2,6 @@
 
 class sorenScriptLoader {
 
-	const version = '1.0';
 
 	public function __construct(){
 
@@ -12,7 +11,7 @@ class sorenScriptLoader {
 	public function load_scripts(){
 
 		wp_enqueue_script('jquery');
-		wp_enqueue_style('soren-style', 		SOREN_THEME_URL.'/less/style.less', self::version, true);
+		wp_enqueue_style('soren-style', 		SOREN_THEME_URL.'/less/style.less', SOREN_THEME_VERSION, true);
 
 		// push nav
 		wp_register_script('soren-menu', 			SOREN_THEME_URL.'/js/pushy.min.js', true);
