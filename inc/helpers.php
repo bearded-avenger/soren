@@ -1,6 +1,13 @@
 <?php
 
-
+/**
+  	* Adds schema to the thml tag depending on the current page view
+  	*
+  	* @author  Nick Haskins <email@nickhaskins.com>
+  	*
+  	* @since 1.0
+  	*
+*/
 if (!function_exists('soren_html_schema')):
 	function soren_html_schema(){
 
@@ -34,29 +41,14 @@ if (!function_exists('soren_html_schema')):
 	}
 endif;
 
-// push nav
-if (!function_exists('soren_push_nav')):
-
-	function soren_push_nav(){
-
-		wp_enqueue_script('soren-menu');
-		wp_enqueue_script('soren-modernizer');
-
-
-		wp_nav_menu( 
-			array( 
-			'theme_location' => 'main_nav',
-			'menu_class' => 'unstyled',
-			'container_class' => 'pushy pushy-left',
-			'container'			=> 'nav',
-			'fallback_cb'     => 'soren_nav_fallback',
-		) );
-		?><div class="menu-btn">☰</div>
-		<div class="site-overlay"></div><?php
-	}
-
-endif;
-
+/**
+  	* Provides a fallback for the push nav
+  	*
+  	* @author  Nick Haskins <email@nickhaskins.com>
+  	*
+  	* @since 1.0
+  	*
+*/
 if (!function_exists('soren_nav_fallback')):
 
 	function soren_nav_fallback(){
