@@ -17,8 +17,10 @@ class sorenThemeFunctions {
 		require_once(SOREN_THEME_DIR.'/inc/sidebars.php');
 		require_once(SOREN_THEME_DIR.'/inc/scripts.php');
 		require_once(SOREN_THEME_DIR.'/inc/options.php');
+		require_once(SOREN_THEME_DIR.'/inc/template-tags.php');
 		require_once(SOREN_THEME_DIR.'/inc/helpers.php');
 		require_once(SOREN_THEME_DIR.'/inc/style-automation.php');
+
 
 		// components
 		require_once(SOREN_THEME_DIR.'/inc/components/component-nav.php');
