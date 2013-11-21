@@ -18,8 +18,11 @@ class sorenThemeFunctions {
 		require_once(SOREN_THEME_DIR.'/inc/scripts.php');
 		require_once(SOREN_THEME_DIR.'/inc/options.php');
 		require_once(SOREN_THEME_DIR.'/inc/helpers.php');
-		require_once(SOREN_THEME_DIR.'/inc/components.php');
 		require_once(SOREN_THEME_DIR.'/inc/style-automation.php');
+
+		// components
+		require_once(SOREN_THEME_DIR.'/inc/components/component-nav.php');
+		require_once(SOREN_THEME_DIR.'/inc/components/component-gallery.php');
 		
 		if(!class_exists('wp_less')){
 			require_once( SOREN_THEME_DIR.'/inc/wp-less.php' );
