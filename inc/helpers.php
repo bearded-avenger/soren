@@ -48,10 +48,18 @@ if (!function_exists('soren_push_nav')):
 			'theme_location' => 'main_nav',
 			'menu_class' => 'unstyled',
 			'container_class' => 'pushy pushy-left',
-			'container'			=> 'nav'
+			'container'			=> 'nav',
+			'fallback_cb'     => 'soren_nav_fallback',
 		) );
 		?><div class="menu-btn">☰</div>
 		<div class="site-overlay"></div><?php
 	}
 
+endif;
+
+if (!function_exists('soren_nav_fallback')):
+
+	function soren_nav_fallback(){
+		printf('<nav class="pushy push-left"><ul id="soren_nav_fallback" class="unstyled">%s</ul></nav>', wp_list_pages( 'title_li=&sort_column=menu_order&depth=1&echo=0') );
+	}
 endif;
