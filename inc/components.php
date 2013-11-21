@@ -49,10 +49,12 @@ endif;
   	*
   	* @since 1.0
   	*
+  	* @param string $size Pass the size of any registered image size. default is full
+  	*
 */
 if (!function_exists('soren_gallery')):
 
-	function soren_gallery(){
+	function soren_gallery($size = 'full'){
 
 		global $post;
 		$id                 = $post->ID;
@@ -79,9 +81,9 @@ if (!function_exists('soren_gallery')):
 
 	            foreach($images as $image):
 
-	                $img  = wp_get_attachment_url($image->ID, 'full', false,'');
+	                $img  = wp_get_attachment_image_src($image->ID, $size);
 	                $alt  = get_post_meta($image->ID, '_wp_attachment_image_alt', true);
-	                $out .= sprintf('<li><img src="%s" alt="%s" /></li>',$img,$alt);
+	                $out .= sprintf('<li><img src="%s" alt="%s" /></li>',$img[0],$alt);
 
 	            endforeach;
 
