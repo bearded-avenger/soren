@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Only run if sidebars kosher
 if ( function_exists('register_sidebar') ) {
-	new FlyteSidebars;
+	new SorenSidebars;
 }
-class FlyteSidebars {
+class SorenSidebars {
 
 	function __construct(){
 
