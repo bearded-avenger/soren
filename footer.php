@@ -1,3 +1,4 @@
+</main>
 <footer class="soren-content push">
 <p>Footer</p>
 </footer>

@@ -12,7 +12,10 @@
 </head>
 <?php do_action('soren_after_header'); //action ?>
 <body <?php body_class(); ?>>
-<?php do_action('soren_inside_top_body'); //action 
+
+<?php do_action('soren_before_main'); //action 
+
+?><main id="container" class="soren-content"><?php
 
 
 

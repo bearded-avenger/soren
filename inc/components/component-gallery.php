@@ -15,9 +15,10 @@
   	* @param string $size Pass the size of any registered image size. default is full
   	*
 */
+
 if (!function_exists('soren_gallery')):
 
-	function soren_gallery($type = 'default',$size = 'full'){
+	function soren_gallery($type = 'default',$size = 'full', $pinsize = 200){
 
 		global $post;
 		$id                 = $post->ID;
@@ -25,6 +26,7 @@ if (!function_exists('soren_gallery')):
        	$shortcode_args = shortcode_parse_atts(soren_gallery_match('/\[gallery\s(.*)\]/isU', $post->post_content));
 
         $ids = $shortcode_args["ids"];
+
 
         $args = array(
             'include'                => $ids,
@@ -67,7 +69,7 @@ if (!function_exists('soren_gallery')):
 					          	autoResize: true,
 					          	container: jQuery('.soren-grid-gallery.soren-grid-gallery-<?php echo $id;?>'),
 					          	offset: 5,
-					          	flexibleWidth: 200
+					          	flexibleWidth: <?php echo $pinsize;?>
 					        };
 					        var handler = jQuery('.soren-grid-gallery.soren-grid-gallery-<?php echo $id;?> figure');
 					        jQuery(handler).wookmark(options);

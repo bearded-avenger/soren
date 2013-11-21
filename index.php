@@ -2,8 +2,6 @@
 
 get_header();
 
-?><main id="container" class="soren-content"><?php
-
 	if ( have_posts() ) :
 
 		while ( have_posts() ) : the_post();
@@ -22,6 +20,5 @@ get_header();
 
 	endif;
 
-?></main><?php
 
 get_footer();
