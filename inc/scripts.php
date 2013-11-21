@@ -18,6 +18,9 @@ class sorenScriptLoader {
 		wp_register_script('soren-menu', 			SOREN_THEME_URL.'/js/pushy.min.js', true);
 		wp_register_script('soren-modernizer', 		SOREN_THEME_URL.'/js/modernizr-2.6.2.min.js', true);
 
+		// Wookmark
+		wp_register_script('soren-grid-gallery', SOREN_THEME_URL.'/js/jquery.wookmark.min.js', true);
+
 	}
 }
 new sorenScriptLoader;
