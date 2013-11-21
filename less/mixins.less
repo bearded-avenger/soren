@@ -2,7 +2,13 @@
 // Mixins
 // --------------------------------------------------
 
-
+.soren-hover-mixin(){
+    &:hover {
+        color:@soren-link-color;
+        .transtition(.15s ease-in-out);
+        .opacity(1.0);
+    }
+}
 // Utilities
 // -------------------------
 
