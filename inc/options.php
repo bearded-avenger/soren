@@ -65,7 +65,7 @@ class sorenCustomizer {
 			'type' 	=> 'text'
 		);
 
-		return $options;
+		return apply_filters('soren_default_options',$options);
 	}
 
 	public static function register($wp_customize){

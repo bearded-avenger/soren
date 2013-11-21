@@ -14,6 +14,10 @@ class sorenScriptLoader {
 		wp_enqueue_script('jquery');
 		wp_enqueue_style('soren-style', 		SOREN_THEME_URL.'/less/style.less', self::version, true);
 
+		// push nav
+		wp_register_script('soren-menu', 			SOREN_THEME_URL.'/js/pushy.min.js', true);
+		wp_register_script('soren-modernizer', 		SOREN_THEME_URL.'/js/modernizr-2.6.2.min.js', true);
+
 	}
 }
 new sorenScriptLoader;
