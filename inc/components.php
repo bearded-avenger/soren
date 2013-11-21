@@ -54,7 +54,42 @@ if (!function_exists('soren_gallery')):
 
 	function soren_gallery(){
 
+		global $post;
+		$id                 = $post->ID;
 
+       	$shortcode_args = shortcode_parse_atts(soren_gallery_match('/\[gallery\s(.*)\]/isU', $post->post_content));
+
+        $ids = $shortcode_args["ids"];
+
+        $args = array(
+            'include'                => $ids,
+	        'post_status'            => 'inherit',
+	        'post_type'              => 'attachment',
+	        'post_mime_type'         => 'image',
+	        'order'                  => 'menu_order ID',
+	        'orderby'                => 'post__in', //required to order results based on order specified the "include" param
+		);
+
+        $images = get_posts(apply_filters('soren_gallery_args',$args));
+
+        if ($images):
+
+	        $out  = '';
+	        $out .= sprintf('<section class="soren-gallery soren-gallery-%s"><ul class="slides">',$id);
+
+	            foreach($images as $image):
+
+	                $img  = wp_get_attachment_url($image->ID, 'full', false,'');
+	                $alt  = get_post_meta($image->ID, '_wp_attachment_image_alt', true);
+	                $out .= sprintf('<li><img src="%s" alt="%s" /></li>',$img,$alt);
+
+	            endforeach;
+
+	        $out .= '</ul></section>';
+
+	        return apply_filters('soren_gallery_output',$out);
+
+        endif;
 	}
 
 endif;

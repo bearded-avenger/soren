@@ -10,9 +10,9 @@
 
 <?php wp_head(); ?>
 </head>
-
+<?php do_action('soren_after_header'); //action ?>
 <body <?php body_class(); ?>>
-
+<?php do_action('soren_inside_top_body'); //action 
 
 
 
