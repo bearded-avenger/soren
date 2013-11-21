@@ -18,7 +18,7 @@
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-	<h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
+	<h5 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h5>
 	<ol class="commentlist">
 		<?php wp_list_comments('type=comment&avatar_size=70&callback=soren_comment'); ?>
 	</ol>
@@ -44,7 +44,7 @@
 
 <div id="respond">
 
-<h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
+<h5><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h5>
 
 <div class="cancel-comment-reply">
 	<small><?php cancel_comment_reply_link(); ?></small>
@@ -76,7 +76,7 @@
 
 <p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
 
-<p><input name="submit" type="submit" id="commentsubmit" tabindex="5" value="Post" />
+<p><input class="btn btn-default" name="submit" type="submit" id="commentsubmit" tabindex="5" value="Post" />
 <?php comment_id_fields(); ?>
 </p>
 <?php do_action('comment_form', $post->ID); ?>
