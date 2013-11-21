@@ -33,3 +33,25 @@ if (!function_exists('soren_html_schema')):
 	    echo 'itemscope="itemscope" itemtype="' . $base . $type . '"';
 	}
 endif;
+
+// push nav
+if (!function_exists('soren_push_nav')):
+
+	function soren_push_nav(){
+
+		wp_enqueue_script('soren-menu');
+		wp_enqueue_script('soren-modernizer');
+
+
+		wp_nav_menu( 
+			array( 
+			'theme_location' => 'main_nav',
+			'menu_class' => 'unstyled',
+			'container_class' => 'pushy pushy-left',
+			'container'			=> 'nav'
+		) );
+		?><div class="menu-btn">☰</div>
+		<div class="site-overlay"></div><?php
+	}
+
+endif;

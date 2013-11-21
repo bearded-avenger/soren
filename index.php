@@ -2,7 +2,7 @@
 
 get_header();
 
-?><section class="soren-content"><?php
+?><section id="container" class="soren-content"><?php
 
 	if ( have_posts() ) :
 
