@@ -182,23 +182,23 @@ class sorenCustomizer {
 			'settings' => 'soren_options[soren_fb_app_id]',
 			'type' => $options['soren_fb_app_id']['type']
 		) );
+
+		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	}
 
 	public static function header_output() {
       	?>
       	<!--Customizer CSS-->
       	<style type='text/css'>
-           	<?php self::generate_css('#site-title a', 'color', 'header_textcolor', '#'); ?>
-           	<?php self::generate_css('body', 'background-color', 'background_color', '#'); ?>
            	<?php self::generate_css('.soren-big-head', 'background-image', 'soren_options[soren_header_img]'); ?>
-           	<?php self::generate_css('.site-logo', 'url', 'soren_options[soren_logo]'); ?>
       	</style>
       	<!--/Customizer CSS-->
       	<?php
    	}
 
    	public static function live_preview() {
-      	wp_enqueue_script('soren-themecustomizer',SOREN_THEME_URL.'/js/theme-customizer.min.js', array( 'jquery','customize-preview' ),	self::version, true);
+      	wp_enqueue_script('soren-themecustomizer',SOREN_THEME_URL.'/js/theme-customizer.js', array( 'jquery','customize-preview' ),	self::version, true);
    	}
 
     public static function generate_css( $selector, $style, $mod_name, $prefix='', $postfix='', $echo=true ) {
