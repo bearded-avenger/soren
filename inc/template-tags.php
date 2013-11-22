@@ -1,11 +1,15 @@
 <?php
 /**
- * Custom template tags for this theme.
- *
- * Eventually, some of the functionality here could be replaced by core features.
- *
- * @package Flyte
- */
+	* Provides additional template tags for use within themes
+ 	*
+ 	* @category   Template Tags
+ 	* @package    Soren
+ 	* @author     Nick Haskins <email@nickhaskins.com>
+ 	* @copyright  2013 Nick Haskins
+ 	* @license    http://www.gnu.org/licenses/gpl-2.0.html  GNU General Public License v2 or later
+ 	* @version    Release: 1.0
+ 	*
+*/
 
 if ( ! function_exists( 'soren_content_nav' ) ) :
 /**

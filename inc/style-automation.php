@@ -1,4 +1,15 @@
 <?php
+/**
+	* Automates colors with live LESS preprocessing
+ 	*
+ 	* @category   Styles
+ 	* @package    Soren
+ 	* @author     Nick Haskins <email@nickhaskins.com>
+ 	* @copyright  2013 Nick Haskins
+ 	* @license    http://www.gnu.org/licenses/gpl-2.0.html  GNU General Public License v2 or later
+ 	* @version    Release: 1.0
+ 	*
+*/
 
 class sorenStyleAutomation {
 
