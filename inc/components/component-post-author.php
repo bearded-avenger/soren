@@ -22,9 +22,10 @@ if (!function_exists('soren_post_author')):
         $default_avatar = false;
         $author_email = get_the_author_meta('email', $post->post_author);
         $author_name = get_the_author();
+        $author_first = get_the_author_meta('first_name', $post->post_author);
         $author_desc = get_the_author_meta('description', $post->post_author);
         $google_profile = get_the_author_meta( 'google_profile' );
-		
+
 		?>
         <section class="media soren-post-author">
             <div class="pull-left">
@@ -33,17 +34,20 @@ if (!function_exists('soren_post_author')):
                 </a>
             </div>
             <div class="media-body">
-                <small class="soren-author-note"><?php _e('Posted By', 'soren');?></small>
-                <h6 class="media-heading"><?php echo $author_name ?></h6>
-                <p><?php echo $author_desc; ?></p>
-                <p class="soren-author-details">
-                    <?php
+            	<div class="row">
+            		<div class="col-md-8">
+                		<small class="soren-author-note"><?php _e('Posted By', 'soren');?></small>
+                		<h6 class="media-heading"><?php echo $author_name ?></h6>
+                		<p class="soren-author-details"><?php echo $author_desc; ?></p>
+                	</div>
+                	<div class="col-md-4">
 
-                        if( $link != '' )
-                            printf( '<a href="%s" class="btn" target="_blank"><i class="icon-external-link"></i> %s</a> ', $link, __( 'Visit Authors Website &rarr;', 'pagelines') );
+                	<?php if( $link != '' )
+                    	printf( '<a href="%s" class="btn btn-default soren-author-link" target="_blank">More of %s  &nbsp;&rsaquo;</a> ', $link, $author_first);
 
-                    ?>
-                </p>
+                	?>
+                </div>
+                </div>
             </div>
         </section><?php
     }
