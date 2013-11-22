@@ -33,10 +33,10 @@ if (!function_exists('soren_post_author')):
                 </a>
             </div>
             <div class="media-body">
-                <small class="author-note text-muted"><?php _e('Posted By', 'soren');?></small>
+                <small class="soren-author-note"><?php _e('Posted By', 'soren');?></small>
                 <h6 class="media-heading"><?php echo $author_name ?></h6>
                 <p><?php echo $author_desc; ?></p>
-                <p class="author-details">
+                <p class="soren-author-details">
                     <?php
 
                         if( $link != '' )
