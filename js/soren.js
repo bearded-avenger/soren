@@ -1,27 +1,17 @@
 jQuery(document).ready(function() {
 
-jQuery('body').css('display', 'none');
+	jQuery('body').css('display', 'none');
 
-jQuery('body').fadeIn(500);
+	jQuery('body').fadeIn(500);
 
+	jQuery('nav a').click(function(event) {
+		event.preventDefault();
+		newLocation = this.href;
+		jQuery('body').fadeOut(400, newpage);
+	});
 
-
-jQuery('nav a').click(function(event) {
-
-event.preventDefault();
-
-newLocation = this.href;
-
-jQuery('body').fadeOut(400, newpage);
-
-});
-
-
-
-function newpage() {
-
-window.location = newLocation;
-
-}
+	function newpage() {
+		window.location = newLocation;
+	}
 
 });
