@@ -5,7 +5,7 @@ class sorenThemeFunctions {
 	public function __construct(){
 
 		// Set some constants
-		define('SOREN_THEME_VERSION', '0.5');
+		define('SOREN_THEME_VERSION', '0.6');
 
 		define('SOREN_THEME_DIR', get_template_directory());
 		define('SOREN_THEME_URL', get_template_directory_uri());
