@@ -30,7 +30,7 @@ class sorenCustomCSSEditor {
 	}
 
 	function register_custom_css_setting() {
-	    register_setting( 'custom_css', 'custom_css',  array($this,'custom_css_validation'));
+	    register_setting( 'custom_css', 'soren_custom_css',  array($this,'custom_css_validation'));
 	}
 
 	function custom_css_admin_page_content() {
@@ -40,12 +40,12 @@ class sorenCustomCSSEditor {
 
 			Please add all your custom CSS here and avoid modifying the core theme files, since that\'ll make upgrading the theme problematic. Your custom CSS will be loaded after the theme\'s stylesheets, which means that your rules will take precedence. Just add your CSS here for what you want to change, you don\'t need to copy all the theme\'s style.css content.
 			*/' );
-	    $custom_css = get_option( 'custom_css', $custom_css_default );
+	    $custom_css = get_option( 'soren_custom_css', $custom_css_default );
 	    ?>
 	    <div class="wrap">
 	        <div id="icon-themes" class="icon32"></div>
-	        <h2><?php _e( 'Custom CSS' ); ?></h2>
-	        <?php if ( ! empty( $_GET['settings-updated'] ) ) echo '<div id="message" class="updated"><p><strong>' . __( 'Custom CSS updated.' ) . '</strong></p></div>'; ?>
+	        <h2><?php _e( 'Soren Custom CSS','soren' ); ?></h2>
+	        <?php if ( ! empty( $_GET['settings-updated'] ) ) echo '<div id="message" class="updated"><p><strong>' . __( 'Sweet! Custom CSS updated.','soren' ) . '</strong></p></div>'; ?>
 
 	        <form id="custom_css_form" method="post" action="options.php" style="margin-top: 15px;">
 
@@ -55,7 +55,7 @@ class sorenCustomCSSEditor {
 	                <div name="custom_css" id="custom_css" style="border: 1px solid #DFDFDF; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; width: 100%; height: 400px; position: relative;"></div>
 	            </div>
 
-	            <textarea id="custom_css_textarea" name="custom_css" style="display: none;"><?php echo $custom_css; ?></textarea>
+	            <textarea id="custom_css_textarea" name="soren_custom_css" style="display: none;"><?php echo $custom_css; ?></textarea>
 	            <p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ) ?>" /></p>
 	        </form>
 	    </div>
@@ -71,7 +71,7 @@ class sorenCustomCSSEditor {
 
 	function display_custom_css() {
 
-		$custom_css = get_option( 'custom_css' );
+		$custom_css = get_option( 'soren_custom_css' );
 		if ( ! empty( $custom_css ) ) { ?>
 			<style type="text/css">
 			    <?php
