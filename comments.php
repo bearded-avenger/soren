@@ -16,80 +16,76 @@
 ?>
 
 
-<?php if( have_comments()): ?>
+
 	<!-- Comments -->
 	<div id="soren-comments-wrap">
-	<?php if ( have_comments() ) : ?>
-		<h5 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h5>
-		<ol class="commentlist">
-			<?php wp_list_comments('type=comment&avatar_size=70&callback=soren_comment'); ?>
-		</ol>
-		<div class="clear"></div>
-		<div class="comment-navigation">
-			<div class="older"><?php previous_comments_link() ?></div>
-			<div class="newer"><?php next_comments_link() ?></div>
-		</div>
-	 <?php else : // this is displayed if there are no comments so far ?>
+		<?php if ( have_comments() ) : ?>
+			<h5 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h5>
+			<ol class="commentlist">
+				<?php wp_list_comments('type=comment&avatar_size=70&callback=soren_comment'); ?>
+			</ol>
+			<div class="clear"></div>
+			<div class="comment-navigation">
+				<div class="older"><?php previous_comments_link() ?></div>
+				<div class="newer"><?php next_comments_link() ?></div>
+			</div>
+		 <?php else : // this is displayed if there are no comments so far ?>
+
+			<?php if ( comments_open() ) : ?>
+
+			 <?php else : // comments are closed ?>
+				<p class="nocomments">Comments are closed.</p>
+
+			<?php endif; ?>
+		<?php endif; ?>
+
 
 		<?php if ( comments_open() ) : ?>
-			<!-- If comments are open, but there are no comments. -->
 
-		 <?php else : // comments are closed ?>
-			<!-- If comments are closed. -->
-			<p class="nocomments">Comments are closed.</p>
+		<div id="respond">
+
+		<h5><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h5>
+
+		<div class="cancel-comment-reply">
+			<small><?php cancel_comment_reply_link(); ?></small>
+		</div>
+
+		<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
+		<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
+		<?php else : ?>
+
+		<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+
+		<?php if ( is_user_logged_in() ) : ?>
+
+		<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
+
+		<?php else : ?>
+
+		<p><input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+		<label for="author"><small>Name <?php if ($req) echo "(required)"; ?></small></label></p>
+
+		<p><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+		<label for="email"><small>Mail (will not be published) <?php if ($req) echo "(required)"; ?></small></label></p>
+
+		<p><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+		<label for="url"><small>Website</small></label></p>
 
 		<?php endif; ?>
-	<?php endif; ?>
 
 
-	<?php if ( comments_open() ) : ?>
+		<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
 
-	<div id="respond">
+		<p><input class="btn btn-default" name="submit" type="submit" id="commentsubmit" tabindex="5" value="Post" />
+		<?php comment_id_fields(); ?>
+		</p>
+		<?php do_action('comment_form', $post->ID); ?>
 
-	<h5><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h5>
+		</form>
 
-	<div class="cancel-comment-reply">
-		<small><?php cancel_comment_reply_link(); ?></small>
-	</div>
+		<div class="comment-rss"><?php post_comments_feed_link('Subscribe to Comments via RSS'); ?></div>
 
-	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-	<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
-	<?php else : ?>
-
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-
-	<?php if ( is_user_logged_in() ) : ?>
-
-	<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
-
-	<?php else : ?>
-
-	<p><input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-	<label for="author"><small>Name <?php if ($req) echo "(required)"; ?></small></label></p>
-
-	<p><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-	<label for="email"><small>Mail (will not be published) <?php if ($req) echo "(required)"; ?></small></label></p>
-
-	<p><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
-	<label for="url"><small>Website</small></label></p>
-
-	<?php endif; ?>
-
-
-	<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
-
-	<p><input class="btn btn-default" name="submit" type="submit" id="commentsubmit" tabindex="5" value="Post" />
-	<?php comment_id_fields(); ?>
-	</p>
-	<?php do_action('comment_form', $post->ID); ?>
-
-	</form>
-
-	<div class="comment-rss"><?php post_comments_feed_link('Subscribe to Comments via RSS'); ?></div>
-
-	<?php endif; // If registration required and not logged in ?>
+		<?php endif; // If registration required and not logged in ?>
 	</div>
 
 	<?php endif; // if you delete this the sky will fall on your head ?>
-</test>
-<?php endif;?>
