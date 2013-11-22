@@ -187,32 +187,10 @@ class sorenCustomizer {
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	}
 
-	public static function header_output() {
-      	?>
-      	<!--Customizer CSS-->
-      	<style type='text/css'>
-           	<?php self::generate_css('.soren-big-head', 'background-image', 'soren_options[soren_header_img]'); ?>
-      	</style>
-      	<!--/Customizer CSS-->
-      	<?php
-   	}
-
    	public static function live_preview() {
       	wp_enqueue_script('soren-themecustomizer',SOREN_THEME_URL.'/js/theme-customizer.js', array( 'jquery','customize-preview' ),	self::version, true);
    	}
 
-    public static function generate_css( $selector, $style, $mod_name, $prefix='', $postfix='', $echo=true ) {
-      	$return = '';
-      	$mod = get_option($mod_name);
-      	if ( ! empty( $mod ) ) {
-
-         	$return = sprintf('%s { %s:%s; }',$selector,$style,$prefix.$mod.$postfix);
-         	if ( $echo ) {
-            	echo $return;
-         	}
-      	}
-      	return $return;
-    }
 
     // Sanitize Footer Text
 	private static function sanitize_footer_text( $input = '' ) {
@@ -232,9 +210,6 @@ class sorenCustomizer {
 }
 // Setup the Theme Customizer settings and controls...
 add_action( 'customize_register' , array( 'sorenCustomizer' , 'register' ) );
-
-// Output custom CSS to live site
-add_action( 'wp_head' , array( 'sorenCustomizer' , 'header_output' ) );
 
 // Enqueue live preview javascript in Theme Customizer admin screen
 add_action( 'customize_preview_init' , array( 'sorenCustomizer' , 'live_preview' ) );

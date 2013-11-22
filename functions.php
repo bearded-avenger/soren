@@ -23,7 +23,7 @@ class sorenThemeFunctions {
 		require_once(SOREN_THEME_DIR.'/inc/template-tags.php');
 		require_once(SOREN_THEME_DIR.'/inc/helpers.php');
 		require_once(SOREN_THEME_DIR.'/inc/style-automation.php');
-
+		require_once(SOREN_THEME_DIR.'/inc/editor.php');
 
 		// components
 		require_once(SOREN_THEME_DIR.'/inc/components/component-nav.php');
