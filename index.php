@@ -14,6 +14,8 @@ get_header();
 
 		endwhile;
 
+		soren_pagination();
+
 	else :
 
 		get_template_part( 'content', 'none' );
