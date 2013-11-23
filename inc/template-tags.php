@@ -29,23 +29,23 @@ if (!function_exists('soren_get_posts')):
 		);
 		$q = new wp_query($args);
 
-		$out = '';
 		if ($q->have_posts()): 
 
 			while($q->have_posts()): $q->the_post();
 
-				the_post_thumbnail();
-				the_title();
+				?><article id="featured-<?php the_ID(); ?>" <?php post_class(); ?>><?php
+					the_post_thumbnail(array(100,100));
+					the_title();
+					the_excerpt();
+				?></article><?php
 
 			endwhile;
 
 		else:
-			$out .= _e('No posts found.','hobson');
+			_e('No posts found.','hobson');
 		endif;
 
 		wp_reset_query();
-
-		return $out;
 	}
 
 endif;
