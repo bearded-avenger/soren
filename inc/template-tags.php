@@ -41,6 +41,8 @@ if (!function_exists('soren_get_posts')):
 
 					the_excerpt();
 
+					?><a class="soren-more-posts" href="<?php the_permalink();?>">More</a><?php
+
 				?></article><?php
 
 			endwhile;
