@@ -51,8 +51,11 @@ class sorenStyleAutomation {
 
 	public function width(){
 
+		$opts = get_option('soren_options') ? get_option('soren_options') : false;
+		$width = isset($opts['soren_width']) ? $opts['soren_width'] : 800;
+
 		if ( ! isset( $content_width ) )
-		$content_width = 800;
+		$content_width = $width;
 
 		return apply_filters('soren_width',$content_width);
 	}

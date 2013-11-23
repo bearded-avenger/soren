@@ -51,6 +51,13 @@ class sorenCustomizer {
 			'type' 	=> 'select'
 		);
 
+		$options['soren_width'] = array(
+			'name' 	=> __('Content Width', 'soren'),
+			'id' 	=> 'soren_width',
+			'default' 	=> 800,
+			'type' 	=> 'text'
+		);
+
 		$options['soren_ga'] = array(
 			'name' 	=> __('Google Analytics Tracking ID', 'soren'),
 			'id' 	=> 'soren_ga',
@@ -149,6 +156,19 @@ class sorenCustomizer {
 				'28px' => '28px'
 
 			)
+		) );
+
+		// Width
+		$wp_customize->add_setting( 'soren_options[soren_width]', array(
+			'default' => $options['soren_width']['default'],
+			'type' => 'option',
+			'sanitize_callback' => self::sanitize_int(),
+		) );
+		$wp_customize->add_control( 'soren_width', array(
+			'label' => $options['soren_width']['name'],
+			'section' => 'soren_advanced',
+			'settings' => 'soren_options[soren_width]',
+			'type' => $options['soren_width']['type']
 		) );
 
 		// Scoial Integration
