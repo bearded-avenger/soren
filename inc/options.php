@@ -52,7 +52,7 @@ class sorenCustomizer {
 		);
 
 		$options['soren_width'] = array(
-			'name' 	=> __('Content Width', 'soren'),
+			'name' 	=> __('Maxiumum Content Width', 'soren'),
 			'id' 	=> 'soren_width',
 			'default' 	=> 800,
 			'type' 	=> 'text'
@@ -133,7 +133,8 @@ class sorenCustomizer {
 		// Font Size
 		$wp_customize->add_setting( 'soren_options[font_size]', array(
 			'type' => 'option',
-			'default'	=> $options['font_size']['default']
+			'default'	=> $options['font_size']['default'],
+			'sanitize_callback' => self::sanitize_int()
 		) );
 		$wp_customize->add_control( 'font_size', array(
 			'label' => $options['font_size']['name'],
@@ -166,7 +167,7 @@ class sorenCustomizer {
 		) );
 		$wp_customize->add_control( 'soren_width', array(
 			'label' => $options['soren_width']['name'],
-			'section' => 'soren_advanced',
+			'section' => 'soren_appearence',
 			'settings' => 'soren_options[soren_width]',
 			'type' => $options['soren_width']['type']
 		) );
