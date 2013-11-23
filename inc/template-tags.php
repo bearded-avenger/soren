@@ -34,9 +34,13 @@ if (!function_exists('soren_get_posts')):
 			while($q->have_posts()): $q->the_post();
 
 				?><article id="featured-<?php the_ID(); ?>" <?php post_class(); ?>><?php
+
 					the_post_thumbnail(array(100,100));
-					the_title();
+
+					?><h5 itemprop="title"><?php the_title(); ?></h5><?php
+
 					the_excerpt();
+
 				?></article><?php
 
 			endwhile;
