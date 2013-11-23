@@ -17,6 +17,8 @@
   	*
   	* @author  Nick Haskins <email@nickhaskins.com>
   	* @since 1.0
+  	* @param string $category pass a category id to pull posts from that category
+  	* @param int $num pass a number to limit number of posts
   	*
 */
 if (!function_exists('soren_get_posts')):
