@@ -11,6 +11,47 @@
  	*
 */
 
+/**
+  	* Get Posts
+  	*
+  	*
+  	* @author  Nick Haskins <email@nickhaskins.com>
+  	* @since 1.0
+  	*
+*/
+if (!function_exists('soren_get_posts')):
+
+	function soren_post_list($category = '', $num = 5){
+
+		$args = array(
+			'posts_per_page' => $num,
+			'category__in' => $category
+		);
+		$q = new wp_query($args);
+
+		$out = '';
+		if ($q->have_posts()): 
+
+			while($q->have_posts()): $q->the_post();
+
+				the_post_thumbnail();
+				the_title();
+
+			endwhile;
+
+		else:
+			$out .= _e('No posts found.','hobson');
+		endif;
+
+		wp_reset_query();
+
+		return $out;
+	}
+
+endif;
+
+
+
 if ( ! function_exists( 'soren_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages when applicable.
