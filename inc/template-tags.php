@@ -39,11 +39,11 @@ if (!function_exists('soren_get_posts')):
 
 					the_post_thumbnail(array(100,100));
 
-					?><h5 itemprop="title"><?php the_title(); ?></h5><?php
+					?><h5 itemprop="title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h5><?php
 
 					the_excerpt();
 
-					?><a class="soren-more-posts" href="<?php the_permalink();?>">More</a><?php
+					?><a class="soren-read-more" href="<?php the_permalink();?>">More</a><?php
 
 				?></article><?php
 
