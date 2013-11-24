@@ -37,9 +37,9 @@ if (!function_exists('soren_get_posts')):
 
 				?><article id="featured-<?php the_ID(); ?>" <?php post_class(); ?>><?php
 
-					the_post_thumbnail(array(100,100));
+					?><a class="soren-post-image-link" href="<?php the_permalink();?>"><?php the_post_thumbnail(array(100,100));?></a>
 
-					?><h5 itemprop="title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h5><?php
+					<h5 itemprop="title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h5><?php
 
 					the_excerpt();
 
