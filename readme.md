@@ -1,13 +1,3 @@
-=== Soren ===  
-Contributors: bearded-avenger  
-Tags: tag, tag, tag  
-Donate link: http://example.com/  
-Requires at least: 3.5  
-Tested up to: 3.8  
-Stable tag: trunk  
-License: GPLv2 or later  
-License URI: http://www.gnu.org/licenses/gpl-2.0.html  
-
 A no-bullshit (and not yet complete) Wordpress framework utilizing Bootstrap 3, live LESS processing, Theme Customizer integration, and loads of un-styled functions and components to make Soren child theme creation fun and robust.  
 
 ## Description  
