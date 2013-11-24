@@ -51,13 +51,6 @@ class sorenCustomizer {
 			'type' 	=> 'select'
 		);
 
-		$options['font_face'] = array(
-			'name' 	=> __('Font', 'soren'),
-			'id' 	=> 'soren_font_face',
-			'default' 	=> 0,
-			'type' 	=> 'select'
-		);
-
 		$options['soren_width'] = array(
 			'name' 	=> __('Maxiumum Content Width', 'soren'),
 			'id' 	=> 'soren_width',
@@ -165,18 +158,6 @@ class sorenCustomizer {
 
 			)
 		) );
-
-		// Font Face
-		$wp_customize->add_setting( 'soren_options[font_face]', array(
-			'type' => 'option',
-			'default'	=> $options['font_face']['default']
-		) );
-		$wp_customize->add_control( new Google_Font_Dropdown_Control( $wp_customize, 'font_face', array(
-			'label' => $options['font_face']['name'],
-			'section' => 'soren_appearence',
-			'settings' => 'soren_options[font_face]',
-			'type' => $options['font_face']['type'],
-		) ) );
 
 		// Width
 		$wp_customize->add_setting( 'soren_options[soren_width]', array(

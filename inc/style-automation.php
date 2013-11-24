@@ -24,17 +24,19 @@ class sorenStyleAutomation {
 		$opts 		 = get_option('soren_options') ? get_option('soren_options') : false;
 		$fontsize 	 = isset($opts['font_size']) ? $opts['font_size'] : false;
 		$fontfamily  = isset($opts['font_face']) ? $opts['font_face'] : false;
+		$fontserif   = isset($opts['font_face_serif']) ? $opts['font_face_serif'] : false;
 		$bgcolor 	 = isset($opts['bg_color']) ? $opts['bg_color'] : false;
 		$linkcolor 	 = isset($opts['link_color']) ? $opts['link_color'] : false;
 		$textcolor 	 = isset($opts['text_color']) ? $opts['text_color'] : false;
 		$headercolor = isset($opts['header_color']) ? $opts['header_color'] : false;
 
 		// width
-		$vars[ 'soren-width' ]      =  $this->width().'px';
+		$vars[ 'soren-width' ]      	=  $this->width().'px';
 
 		// type
 		$vars['soren-font-size'] 		= $fontsize ? $fontsize : '22px';
-		$vars['soren-font-family'] 		= $fontfamily ? $fontfamily : 'Open Sans';
+		$vars['soren-font-sans-serif'] 	= $fontfamily ? $fontfamily : 'Open Sans';
+		$vars['soren-font-serif'] 		= $fontserif ? $fontserif : 'Droid Serif';
 		
 		// color vars
 		$vars[ 'soren-bg-color' ] 		= $bgcolor ? $bgcolor : '#EAEAEA';
