@@ -30,6 +30,7 @@ class sorenThemeFunctions {
 		require_once(SOREN_THEME_DIR.'/inc/components/component-gallery.php');
 		require_once(SOREN_THEME_DIR.'/inc/components/component-post-shares.php');
 		require_once(SOREN_THEME_DIR.'/inc/components/component-post-author.php');
+		require_once(SOREN_THEME_DIR.'/inc/components/component-post-nav.php');
 		require_once(SOREN_THEME_DIR.'/inc/components/component-pagination.php');
 
 		if(!class_exists('wp_less')){
