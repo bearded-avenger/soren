@@ -19,8 +19,8 @@ ol.commentlist li div.comment-metadata {}
 ol.commentlist li div.comment-meta { text-align: center; }
 ol.commentlist li div.comment-meta a {  }
 ol.commentlist li p { margin:0 0 1em; }
-ol.commentlist li ul { font-size:11px; list-style:square; margin:0 0 1em 2em; }
-ol.commentlist li div.reply { font-size:11px; }
+ol.commentlist li ul { font-size:@font-size-xsmall; list-style:square; margin:0 0 1em 2em; }
+ol.commentlist li div.reply { font-size:@font-size-xsmall; }
 ol.commentlist li div.reply a { font-weight:bold; }
 ol.commentlist li ul.children { list-style:none; margin:1em 0 0; text-indent:0; .avatar {max-width:50px;}}
 ol.commentlist li ul.children li {}
@@ -29,21 +29,21 @@ ol.commentlist li ul.children li.bypostauthor {}
 ol.commentlist li ul.children li.byuser {}
 ol.commentlist li ul.children li.comment {}
 ol.commentlist li ul.children li.comment-author-admin {}
-ol.commentlist li ul.children li.depth-2 { border-left:1px solid @baseContrast; margin:0 0 .25em .25em; }
-ol.commentlist li ul.children li.depth-3 { border-left:1px solid darken(@baseContrast,5); margin:0 0 .25em .25em; }
-ol.commentlist li ul.children li.depth-4 { border-left:1px solid darken(@baseContrast,10); margin:0 0 .25em .25em; }
+ol.commentlist li ul.children li.depth-2 { border-bottom:1px solid @baseContrast; margin:0 0 .25em .25em; }
+ol.commentlist li ul.children li.depth-3 { border-bottom:1px solid darken(@baseContrast,5); margin:0 0 .25em .25em; }
+ol.commentlist li ul.children li.depth-4 { border-bottom:1px solid darken(@baseContrast,10); margin:0 0 .25em .25em; }
 ol.commentlist li ul.children li.depth-5 {}
 ol.commentlist li ul.children li.odd {}
 ol.commentlist li.even { background:@baseContrastSlight; }
 ol.commentlist li.odd { background:darken(@baseContrastSlight,5); }
-ol.commentlist li.parent { border-left:1px solid @baseContrast; }
+ol.commentlist li.parent { border-bottom:1px solid @baseContrast; }
 ol.commentlist li.pingback { border-bottom:1px solid @baseContrast; padding:1em; }
 ol.commentlist li.thread-alt { }
 ol.commentlist li.thread-even {}
 ol.commentlist li.thread-odd {}
 
 .soren-content .commentlist .comment.comment-author-admin {
-    border-left:2px solid @soren-link-color;
+    border:1px solid @soren-link-color;
 }
 ol.commentlist li.comment .comment-body{
     margin-bottom:0;

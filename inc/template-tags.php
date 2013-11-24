@@ -126,18 +126,16 @@ if ( ! function_exists( 'soren_comment' ) ) :
 		<?php else : ?>
 
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
-			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-				
-				<div class="row">
+			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body media">
 
-					<section class="comment-meta col-sm-2 npr">
-						<div class="comment-author vcard">
+					<section class="comment-meta pull-left">
+						<div class="comment-author vcard media-object">
 							<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
 							<?php printf( __( '%s ', 'soren' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 						</div><!-- .comment-author -->
 					</section><!-- .comment-meta -->
 
-					<div class="comment-content col-sm-10">
+					<div class="comment-content media-body">
 						<?php comment_text(); ?>
 
 						<div class="comment-metadata">
@@ -163,7 +161,6 @@ if ( ! function_exists( 'soren_comment' ) ) :
 						?>
 					</div><!-- .comment-content -->
 
-				</div>
 			</article><!-- .comment-body -->
 
 		<?php
