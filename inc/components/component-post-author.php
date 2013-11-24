@@ -40,7 +40,7 @@ if (!function_exists('soren_post_author')):
             	<?php if (true == $extended) { ?>
 	            	<div class="row">
 	            		<div class="col-md-8 soren-author-details-wrap">
-	                		<small class="soren-author-note"><?php _e('Posted by', 'soren');?></small>
+	                		<small class="soren-author-note"><?php _e('Posted by ', 'soren');?></small>
 	                		<?php echo $author;?>
 	                		<p class="soren-author-details"><?php echo $author_desc; ?></p>
 	                	</div>
