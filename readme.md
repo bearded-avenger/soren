@@ -1,6 +1,3 @@
-A no-bullshit (and not yet complete) Wordpress framework utilizing Bootstrap 3, live LESS processing, Theme Customizer integration, and loads of un-styled functions and components to make Soren child theme creation fun and robust.  
-
-## Description  
 Soren was built for those developers who are sick of unstyling the parent framework, for those who are sick of clients wrecking their designers, and for those who long for something sleak, slender, powerful, and robust. Something that was built by some super high standards (either that or I'm really fuckin OCD).
 
 ## Features  
@@ -12,7 +9,10 @@ Soren was built for those developers who are sick of unstyling the parent framew
 * 99% unstyled
 * library of components
 * tons of template tags
-* utilizes Wordpress theme customizer
+* utilizes Wordpress theme customizer  
+
+
+See the Wiki here for some documenation and shiz.   
 
 
 ## Installation  
@@ -26,5 +26,4 @@ You're probably better off buying a pre-made theme from Themeforest or the Wordp
 
 
 ## Changelog  
-= 0.6 =
-* Since changelog was tracked
+* see changelog.txt  
