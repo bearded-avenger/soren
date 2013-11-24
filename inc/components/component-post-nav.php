@@ -11,11 +11,11 @@ if (!function_exists('soren_post_nav')) {
 
 	    	if (true == $adjacent) {
 
-	    		$prev = get_adjacent_post(true,'',true); 
-	    		$prevlink = get_permalink(get_adjacent_post(false,'',true));
+	    		$prev = get_adjacent_post(true,'',false); 
+	    		$prevlink = get_permalink(get_adjacent_post(false,'',false));
 
-				$next = get_adjacent_post(true,'',false);
-				$nextlink = get_permalink(get_adjacent_post(false,'',false));
+				$next = get_adjacent_post(true,'',true);
+				$nextlink = get_permalink(get_adjacent_post(false,'',true));
 
 				if ($prevlink != get_permalink() && !empty($prev) ) {
 	        		?><a class="soren-post-adjacent previous" href="<?php echo $prevlink;?>">
