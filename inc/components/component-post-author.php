@@ -10,7 +10,7 @@
 */
 if (!function_exists('soren_post_author')):
 
-	function soren_post_author($extended = ''){
+	function soren_post_author($extended = '', $avatarsize = 80){
 
         global $post;
         setup_postdata($post);
@@ -30,7 +30,7 @@ if (!function_exists('soren_post_author')):
         <section class="media soren-post-author">
             <div class="pull-left">
                 <a class="thumbnail" href="<?php echo $link; ?>" target="_blank">
-                    <?php echo get_avatar( $author_email, '80', $default_avatar); ?>
+                    <?php echo get_avatar( $author_email, $avatarsize, $default_avatar); ?>
                 </a>
             </div>
             <div class="media-body">
