@@ -22,7 +22,7 @@
 		<?php if ( have_comments() ) : ?>
 			<h5 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h5>
 			<ol class="commentlist">
-				<?php wp_list_comments('type=comment&avatar_size=70&callback=soren_comment'); ?>
+				<?php wp_list_comments('type=comment&avatar_size=60&callback=soren_comment'); ?>
 			</ol>
 			<div class="clear"></div>
 			<div class="comment-navigation">
