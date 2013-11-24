@@ -10,7 +10,7 @@
 */
 if (!function_exists('soren_post_author')):
 
-	function soren_post_author(){
+	function soren_post_author($extended = ''){
 
         global $post;
         setup_postdata($post);
@@ -34,20 +34,24 @@ if (!function_exists('soren_post_author')):
                 </a>
             </div>
             <div class="media-body">
-            	<div class="row">
-            		<div class="col-md-8 soren-author-details-wrap">
-                		<small class="soren-author-note"><?php _e('Posted By', 'soren');?></small>
-                		<h6 class="media-heading"><?php echo $author_name ?></h6>
-                		<p class="soren-author-details"><?php echo $author_desc; ?></p>
-                	</div>
-                	<div class="col-md-4 soren-author-extended-wrap">
+            	<?php if (true == $extended) { ?>
+	            	<div class="row">
+	            		<div class="col-md-8 soren-author-details-wrap">
+	                		<small class="soren-author-note"><?php _e('Posted By', 'soren');?></small>
+	                		<h6 class="media-heading"><?php echo $author_name ?></h6>
+	                		<p class="soren-author-details"><?php echo $author_desc; ?></p>
+	                	</div>
+	                	<div class="col-md-4 soren-author-extended-wrap">
 
-                	<?php if( $link != '' )
-                    	printf( '<a href="%s" class="btn btn-default soren-author-link" target="_blank">More of %s  &nbsp;&rsaquo;</a> ', $link, $author_first);
-
-                	?>
-                </div>
-                </div>
+		                	<?php if( $link != '' ) {
+		                    	printf( '<a href="%s" class="btn btn-default soren-author-link" target="_blank">More of %s  &nbsp;&rsaquo;</a> ', $link, $author_first);
+		                	} ?>
+		                </div>
+	                </div>
+                <?php } else { ?>
+	                <small class="soren-author-note"><?php _e('Posted By', 'soren');?></small>
+	                <h6 class="media-heading"><?php echo $author_name ?></h6>
+                <?php }?>
             </div>
         </section><?php
     }
