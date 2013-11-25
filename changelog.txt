@@ -1,2 +1,6 @@
+= 0.8 =
+* Added angle up and angle down icons
+* added parallax plugin script to main js file
+
 = 0.7 =
 * since changelog was tracked
