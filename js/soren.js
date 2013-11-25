@@ -5,7 +5,7 @@ jQuery(document).ready(function() {
 
 	jQuery('body').fadeIn(500);
 
-	jQuery('nav a, .soren-fader').click(function(event) {
+	jQuery('.pushy a, .soren-fader').click(function(event) {
 		event.preventDefault();
 		newLocation = this.href;
 		jQuery('body').fadeOut(400, newpage);
