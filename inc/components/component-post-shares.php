@@ -10,13 +10,12 @@
 */
 if (!function_exists('soren_post_shares')):
 
-	function soren_post_shares($togglecomment = false){
+	function soren_post_shares(){
 
-		$twitter = sprintf('<a href="http://twitter.com/share?text=%s&amp;url=%s" target="_blank"><i class="sorencon sorencon-twitter"></i></a>', get_permalink(),get_permalink());
-		$facebook = sprintf('<a href="http://www.facebook.com/sharer.php?u=%s&amp;t=%s" target="_blank"><i class="sorencon sorencon-facebook"></i></a>', get_permalink(),get_the_title());
-		$togglecomment = sprintf('<a class="show-soren-comments" href="#soren-comments-wrap"><i class="sorencon sorencon-comments"></i></a>');
+		$twitter = sprintf('<a class="soren-twitter-share" href="http://twitter.com/share?text=%s&amp;url=%s" target="_blank"><i class="sorencon sorencon-twitter"></i></a>', get_permalink(),get_permalink());
+		$facebook = sprintf('<a class="soren-facebook-share" href="http://www.facebook.com/sharer.php?u=%s&amp;t=%s" target="_blank"><i class="sorencon sorencon-facebook"></i></a>', get_permalink(),get_the_title());
 
-		$out = true == $togglecomment && ( comments_open() || '0' != get_comments_number() ) ? sprintf('%s%s%s',$twitter, $facebook, $togglecomment) : sprintf('%s%s',$twitter, $facebook);
+		$out = sprintf('%s%s',$twitter, $facebook);
 		return apply_filters('soren_post_share_output', $out);
 	}
 
