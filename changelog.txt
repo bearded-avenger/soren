@@ -5,6 +5,7 @@
 * added scrollnav js to core
 * added search plus icon
 * added waypoints to core
+* added fitvids to core
 
 = 0.7 =
 * since changelog was tracked
