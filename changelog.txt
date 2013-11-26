@@ -2,6 +2,7 @@
 * swapped slimbox for swipebox due to slim box not being responsive by default
 * added clean arg for post author that outputs with no markup
 * added BS modal to core js file
+* added BS transition to core js file
 
 = 0.8 =
 * Added angle up and angle down icons
