@@ -3,6 +3,8 @@
 * added parallax to core
 * added image lightbox to core
 * added scrollnav js to core
+* added search plus icon
+* added waypoints to core
 
 = 0.7 =
 * since changelog was tracked
