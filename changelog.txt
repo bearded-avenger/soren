@@ -4,6 +4,7 @@
 * added BS modal to core js file
 * added BS transition to core js file
 * removed comment toggle from article share
+* added external link icon font awesome
 
 = 0.8 =
 * Added angle up and angle down icons
