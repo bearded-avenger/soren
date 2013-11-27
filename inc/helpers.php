@@ -67,6 +67,72 @@ if (!function_exists('soren_gallery_match')){
     }
 }
 
+/**
+  	* This provides color automation with a check for 50% brightness
+  	*
+  	* Pass a hex code and it will then check to see if that color is closer to white or black
+  	* Mainly so if the user sets black color it returns something else other than black
+  	*
+  	* @author  Nick Haskins <email@nickhaskins.com>
+  	* @since 1.0
+  	* @param $key pass a hex color
+  	*
+*/
+if (!function_exists('soren_color_sync')){
+	function soren_color_sync($key = ''){
+
+		//break up the color in its RGB components
+		$r = hexdec(substr($key,0,2));
+		$g = hexdec(substr($key,2,2));
+		$b = hexdec(substr($key,4,2));
+
+		$yiq = (($r*299)+($g*587)+($b*114))/1000;
+
+		if ($yiq >= 128){
+		    $out = soren_darken($key);
+		}else{
+		    //dark color, use bright font
+		    $out = soren_lighten($key);
+		}
+
+		return $out;
+	}
+}
+/**
+  	* This provides color automation with a check for 50% brightness
+  	*
+  	* Pass a hex code and it will then check to see if that color is closer to white or black
+  	* Mainly so if the user sets black color it returns something else other than black
+  	*
+  	* @author  Nick Haskins <email@nickhaskins.com>
+  	* @since 1.0
+  	* @param $key pass a hex color
+  	*
+*/
+if (!function_exists('soren_lighten')){
+
+	function soren_lighten($key = '') {
+
+		$col = array(hexdec(substr($key,1,2)),hexdec(substr($key,3,2)),hexdec(substr($key,5,2)));
+
+		$lighten = array(255-(255-$col[0])/2,255-(255-$col[1])/2,255-(255-$col[2])/2);
+		$lighten = "#".sprintf("%02X%02X%02X", $lighten[0], $lighten[1], $lighten[2]);
+
+		return $lighten;
+	}
+}
+if (!function_exists('soren_darken')){
+
+	function soren_darken($key = '') {
+
+		$col = array(hexdec(substr($key,1,2)),hexdec(substr($key,3,2)),hexdec(substr($key,5,2)));
+
+		$darken = array($col[0]/2,$col[1]/2,$col[2]/2);
+		$darken = "#".sprintf("%02X%02X%02X", $darken[0], $darken[1], $darken[2]);
+
+		return $darken;
+	}
+}
 if (!function_exists('soren_color_invert')){
 	function soren_color_invert( $mode = 'dark', $delta = 5 ){
 
@@ -91,7 +157,6 @@ if (!function_exists('soren_color_invert')){
 		}
 	}
 }
-
 if (!function_exists('soren_color_detect')){
 	function soren_color_detect(){
 
