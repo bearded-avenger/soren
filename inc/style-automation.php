@@ -46,8 +46,8 @@ class sorenStyleAutomation {
 
 
 		// helper vars
-		$vars[ 'invert-dark' ]	 	=  $this->invert();
-		$vars[ 'invert-light' ]		=  $this->invert( 'light' );
+		$vars[ 'invert-dark' ]	 	=  soren_color_invert();
+		$vars[ 'invert-light' ]		=  soren_color_invert( 'light' );
 
     	return apply_filters('soren_less_vars',$vars);
 
@@ -62,64 +62,6 @@ class sorenStyleAutomation {
 		$content_width = $width;
 
 		return apply_filters('soren_width',$content_width);
-	}
-
-	private function invert( $mode = 'dark', $delta = 5 ){
-
-		if($mode == 'light'){
-
-			if($this->color_detect() == -2)
-				return 2*$delta;
-			elseif($this->color_detect() == -1)
-				return 1.5*$delta;
-			elseif($this->color_detect() == 1)
-				return -1.7*$delta;
-			else
-				return $delta;
-
-		}else{
-			if($this->color_detect() == -2)
-				return -(2*$delta);
-			elseif($this->color_detect() == -1)
-				return -$delta;
-			else
-				return $delta;
-		}
-	}
-
-	private function color_detect(){
-
-		$opts = get_option('soren_options') ? get_option('soren_options') : false;
-		$bgcolor = isset($opts['bg_color']) ? $opts['bg_color'] : false;
-
-		$hex = str_replace('#', '', $bgcolor);
-
-		$r = hexdec(substr($hex,0,2));
-		$g = hexdec(substr($hex,2,2));
-		$b = hexdec(substr($hex,4,2));
-
-		if($r + $g + $b > 750){
-
-			// Light
-		    return 1;
-
-		}elseif($r + $g + $b < 120){
-
-			// Really Dark
-			return -2;
-
-		}
-		elseif($r + $g + $b < 300){
-
-			// Dark
-			return -1;
-
-		}else{
-
-			// Meh
-		    return false;
-
-		}
 	}
 
 }
