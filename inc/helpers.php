@@ -34,7 +34,7 @@ if (!function_exists('soren_html_schema')){
 
 	    endswitch;
 
-	    echo 'itemscope="itemscope" itemtype="http://schema.org'.$type.'"';
+	    echo 'itemscope="itemscope" itemtype="http://schema.org/'.$type.'"';
 	}
 }
 
