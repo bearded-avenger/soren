@@ -7,6 +7,7 @@
 * added external link icon font awesome
 * added select2 to CMB (needs them)
 * added new soren_color_sync() function to provide PHP color automation when LESS color automation isn’t feasible, like posts
+* fixed broken schema tag
 
 = 0.8 =
 * Added angle up and angle down icons
