@@ -10,7 +10,7 @@
 */
 if (!function_exists('soren_post_author')):
 
-	function soren_post_author($extended = '', $avatarsize = 80, $link = false, $clean = false){
+	function soren_post_author($extended = '', $avatarsize = 80, $link = false, $clean = false, $postedby = 'Posted by'){
 
         global $post;
         setup_postdata($post);
@@ -35,7 +35,7 @@ if (!function_exists('soren_post_author')):
 
         	<?php if (true == $extended) { ?>
 
-        		<small class="soren-author-note"><?php _e('Posted by ', 'soren');?></small>
+        		<small class="soren-author-note"><?php _e($postedby, 'soren');?></small>
         		<?php echo $author;?>
         		<p class="soren-author-details"><?php echo $author_desc; ?></p>
             	<?php if( $author_out_link != '' ) {
@@ -43,7 +43,7 @@ if (!function_exists('soren_post_author')):
             	}
 
             } else { ?>
-                <small class="soren-author-note"><?php _e('Posted by', 'soren');?></small>
+                <small class="soren-author-note"><?php _e($postedby, 'soren');?></small>
                 <?php echo $author;
             }
 
@@ -58,7 +58,7 @@ if (!function_exists('soren_post_author')):
 	            	<?php if (true == $extended) { ?>
 		            	<div class="row">
 		            		<div class="col-md-8 soren-author-details-wrap">
-		                		<small class="soren-author-note"><?php _e('Posted by ', 'soren');?></small>
+		                		<small class="soren-author-note"><?php _e($postedby, 'soren');?></small>
 		                		<?php echo $author;?>
 		                		<p class="soren-author-details"><?php echo $author_desc; ?></p>
 		                	</div>
@@ -69,7 +69,7 @@ if (!function_exists('soren_post_author')):
 			                </div>
 		                </div>
 	                <?php } else { ?>
-		                <small class="soren-author-note"><?php _e('Posted by', 'soren');?></small>
+		                <small class="soren-author-note"><?php _e($postedby, 'soren');?></small>
 		                <?php echo $author;?>
 	                <?php }?>
 	            </div>
