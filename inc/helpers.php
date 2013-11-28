@@ -79,7 +79,7 @@ if (!function_exists('soren_gallery_match')){
   	*
 */
 if (!function_exists('soren_color_sync')){
-	function soren_color_sync($key = ''){
+	function soren_color_sync($key = '', $lum = 2){
 
 		//break up the color in its RGB components
 		$r = hexdec(substr($key,0,2));
@@ -89,10 +89,10 @@ if (!function_exists('soren_color_sync')){
 		$yiq = (($r*299)+($g*587)+($b*114))/1000;
 
 		if ($yiq >= 128){
-		    $out = soren_darken($key);
+		    $out = soren_darken($key, $lum);
 		}else{
 		    //dark color, use bright font
-		    $out = soren_lighten($key);
+		    $out = soren_lighten($key, $lum);
 		}
 
 		return $out;
@@ -111,11 +111,11 @@ if (!function_exists('soren_color_sync')){
 */
 if (!function_exists('soren_lighten')){
 
-	function soren_lighten($key = '') {
+	function soren_lighten($key = '',$lum = 2) {
 
 		$col = array(hexdec(substr($key,1,2)),hexdec(substr($key,3,2)),hexdec(substr($key,5,2)));
 
-		$lighten = array(255-(255-$col[0])/2,255-(255-$col[1])/2,255-(255-$col[2])/2);
+		$lighten = array(255-(255-$col[0])/$lum,255-(255-$col[1])/$lum,255-(255-$col[2])/$lum);
 		$lighten = "#".sprintf("%02X%02X%02X", $lighten[0], $lighten[1], $lighten[2]);
 
 		return $lighten;
@@ -123,11 +123,11 @@ if (!function_exists('soren_lighten')){
 }
 if (!function_exists('soren_darken')){
 
-	function soren_darken($key = '') {
+	function soren_darken($key = '',$lum = 2) {
 
 		$col = array(hexdec(substr($key,1,2)),hexdec(substr($key,3,2)),hexdec(substr($key,5,2)));
 
-		$darken = array($col[0]/2,$col[1]/2,$col[2]/2);
+		$darken = array($col[0]/$lum,$col[1]/$lum,$col[2]/$lum);
 		$darken = "#".sprintf("%02X%02X%02X", $darken[0], $darken[1], $darken[2]);
 
 		return $darken;
