@@ -11,6 +11,7 @@
 * added sidebar.php needs this duh
 * added new $postedby arg to soren_post_author
 * added new $lum arg to soren_color_sync() to control luminosity break point
+* added home icon from font awesome
 
 = 0.8 =
 * Added angle up and angle down icons
