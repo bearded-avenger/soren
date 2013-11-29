@@ -1,5 +1,7 @@
 Soren was built for those developers who are sick of unstyling the parent framework, for those who are sick of clients wrecking their designers, and for those who long for something sleak, slender, powerful, and robust. Something that was built by some super high standards (either that or I'm really fuckin OCD).
 
+Soren is 99% unstyled, and is not meant for using on it's own. There is no drag and drop controls, and no fancy user interface. It's a toolkit to give developers what they need to built robust websites with Wordpress quickly, and easily.  
+
 ## Features  
 
 * live less processing
@@ -13,7 +15,6 @@ Soren was built for those developers who are sick of unstyling the parent framew
 
 
 See the Wiki here for some documenation and shiz.   
-
 
 ## Installation  
 1. Upload soren to wp-content/themes    
