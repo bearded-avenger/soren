@@ -74,7 +74,8 @@ class sorenCustomizer {
 		// BG Color
 		$wp_customize->add_setting( 'soren_options[bg_color]', array(
 			'type' => 'option',
-			'default'	=> $options['bg_color']['default']
+			'default'	=> $options['bg_color']['default'],
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bg_color', array(
 			'label' => $options['bg_color']['name'],
@@ -85,7 +86,8 @@ class sorenCustomizer {
 		// Link Color
 		$wp_customize->add_setting( 'soren_options[link_color]', array(
 			'type' => 'option',
-			'default'	=> $options['link_color']['default']
+			'default'	=> $options['link_color']['default'],
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
 			'label' => $options['link_color']['name'],
@@ -96,7 +98,8 @@ class sorenCustomizer {
 		// Text Color
 		$wp_customize->add_setting( 'soren_options[text_color]', array(
 			'type' => 'option',
-			'default'	=> $options['text_color']['default']
+			'default'	=> $options['text_color']['default'],
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
 			'label' => $options['text_color']['name'],
@@ -108,7 +111,8 @@ class sorenCustomizer {
 		// Header Color
 		$wp_customize->add_setting( 'soren_options[header_color]', array(
 			'type' => 'option',
-			'default'	=> $options['header_color']['default']
+			'default'	=> $options['header_color']['default'],
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
 			'label' => $options['header_color']['name'],
@@ -166,21 +170,19 @@ class sorenCustomizer {
       	wp_enqueue_script('soren-themecustomizer',SOREN_THEME_URL.'/js/theme-customizer.js', array( 'jquery','customize-preview' ),	self::version, true);
    	}
 
-
-    // Sanitize Footer Text
-	private static function sanitize_footer_text( $input = '' ) {
-	    return stripslashes_deep( $input );
+   	// sanitize text input. allow some html but definitely no scripts and close tags if they left them open
+	private  static function sanitize_text_field( $input = ''  ) {
+		return wp_kses_post( force_balance_tags( $input ) );
 	}
 
-	private static function sanitize_text_field( $input = ''  ) {
-		return sanitize_text_field( $input );
-	}
-
+	// sanitize integer
 	private static function sanitize_int( $input = ''  ) {
-		return wp_filter_nohtml_kses( round( $input ) );
+
+	    if( is_numeric( $input ) ) {
+	        return intval( $input );
+	    }
 
 	}
-
 
 }
 // Setup the Theme Customizer settings and controls...
