@@ -52,6 +52,7 @@ class sorenThemeFunctions {
 		add_action('init', 				array($this,'theme_supports'));
 		add_action('init', 				array($this,'image_sizes'),2);
 		add_filter('body_class',		array($this,'browser_body_class'));
+		add_action('after_setup_theme', array($this,'textdomain'));
 	}
 
 
@@ -95,5 +96,8 @@ class sorenThemeFunctions {
 		add_theme_support( 'html5' );
 	}
 
+    function textdomain() {
+		load_theme_textdomain( 'soren_translation', SOREN_THEME_DIR. '/languages' );
+	}
 }
 new sorenThemeFunctions;

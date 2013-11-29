@@ -167,7 +167,7 @@ class sorenCustomizer {
 	}
 
    	public static function live_preview() {
-      	wp_enqueue_script('soren-themecustomizer',SOREN_THEME_URL.'/js/theme-customizer.js', array( 'jquery','customize-preview' ),	self::version, true);
+      	wp_enqueue_script('soren-themecustomizer',SOREN_THEME_URL.'/js/soren-theme-customizer.min.js', array( 'jquery','customize-preview' ),	self::version, true);
    	}
 
    	// sanitize text input. allow some html but definitely no scripts and close tags if they left them open
