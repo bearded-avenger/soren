@@ -58,20 +58,6 @@ class sorenCustomizer {
 			'type' 	=> 'text'
 		);
 
-		$options['soren_ga'] = array(
-			'name' 	=> __('Google Analytics Tracking ID', 'soren'),
-			'id' 	=> 'soren_ga',
-			'default' 	=> ' ',
-			'type' 	=> 'text'
-		);
-
-		$options['soren_fb_app_id'] = array(
-			'name' 	=> __('Facebook APP ID', 'soren'),
-			'id' 	=> 'soren_fb_app_id',
-			'default' 	=> ' ',
-			'type' 	=> 'text'
-		);
-
 		return apply_filters('soren_default_options',$options);
 	}
 
@@ -170,38 +156,6 @@ class sorenCustomizer {
 			'section' => 'soren_appearence',
 			'settings' => 'soren_options[soren_width]',
 			'type' => $options['soren_width']['type']
-		) );
-
-		// Scoial Integration
-		$wp_customize->add_section( 'soren_advanced', array(
-			'title' => __( 'Social Integration', 'soren' ),
-			'priority' => 112
-		) );
-
-		// GA
-		$wp_customize->add_setting( 'soren_options[soren_ga]', array(
-			'default' => $options['soren_ga']['default'],
-			'type' => 'option',
-			 'sanitize_callback' => self::sanitize_int(),
-		) );
-		$wp_customize->add_control( 'soren_ga', array(
-			'label' => $options['soren_ga']['name'],
-			'section' => 'soren_advanced',
-			'settings' => 'soren_options[soren_ga]',
-			'type' => $options['soren_ga']['type']
-		) );
-
-		// FB APP ID
-		$wp_customize->add_setting( 'soren_options[soren_fb_app_id]', array(
-			'default' => $options['soren_fb_app_id']['default'],
-			'type' => 'option',
-			'sanitize_callback' => self::sanitize_int(),
-		) );
-		$wp_customize->add_control( 'soren_fb_app_id', array(
-			'label' => $options['soren_fb_app_id']['name'],
-			'section' => 'soren_advanced',
-			'settings' => 'soren_options[soren_fb_app_id]',
-			'type' => $options['soren_fb_app_id']['type']
 		) );
 
 		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
