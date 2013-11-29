@@ -11,6 +11,47 @@
  	*
 */
 
+if (! function_exists('soren_currently_viewing')):
+
+	function soren_currently_viewing(){
+		if( is_search() ):
+		        $out = sprintf( '%s <strong>%s</strong>', __( 'Results for', 'soren' ), get_search_query() );
+		elseif( is_category() ):
+		        $out = sprintf( '%s <strong>%s</strong>', __( 'Categorized with', 'soren' ), single_cat_title( false, false ) );
+		elseif( is_tag() ):
+		        $out = sprintf( '%s <strong>%s</strong>', __( 'Tagged with', 'soren' ), single_tag_title( false, false ) );
+		elseif( is_archive() ):
+
+		        if (is_author()) {
+		                global $author;
+		                global $author_name;
+		                $curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name ) : get_userdata( intval( $author ) );
+                        $out = sprintf( '%s <strong>%s</strong>', __( 'All posts by ', 'soren' ), $curauth->display_name );
+		        } elseif ( is_day() ) {
+		                $out = sprintf( '%s <strong>%s</strong>', __( 'From the daily archives:', 'soren' ), get_the_time('l, F j, Y') );
+		        } elseif ( is_month() ) {
+		                $out = sprintf( '%s <strong>%s</strong>', __( 'From the monthly archives:', 'soren' ), get_the_time('F Y') );
+		        } elseif ( is_year() ) {
+		                $out = sprintf( '%s <strong>%s</strong>', __( 'From the yearly archives:', 'soren' ), get_the_time('Y') );
+		        } else {
+		                if ( is_post_type_archive() )
+		                        $title =  post_type_archive_title( null,false );
+		                if ( ! isset( $title ) ) {
+		                        $o = get_queried_object();
+		                        if ( isset( $o->name ) )
+		                                $title = $o->name;
+		                }
+		                if ( ! isset( $title ) )
+		                        $title = the_date();
+		                $out = sprintf( '%s <strong>%s</strong>', __( 'Viewing ', 'soren'), $title );
+		        }
+		        endif;
+
+		return $out;
+	}
+
+endif;
+
 if ( ! function_exists( 'soren_comment' ) ) :
 	/**
 	 * Template for comments and pingbacks.

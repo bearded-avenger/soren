@@ -2,14 +2,14 @@
 
 if (!function_exists('soren_post_nav')) {
 
-	function soren_post_nav($adjacent = ''){
+	function soren_post_nav($adjacent = false){
 
     	$class = $adjacent ? 'adjacent' : false;
 
     	?>
     	<nav class="soren-post-nav <?php echo $class;?>" role="navigation" itemprop ><?php
 
-	    	if (true == $adjacent) {
+	    	if ($adjacent) {
 
 	    		$prev = get_adjacent_post(true,'',false); 
 	    		$prevlink = get_permalink(get_adjacent_post(false,'',false));

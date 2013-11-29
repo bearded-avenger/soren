@@ -11,7 +11,7 @@
 */
 if (!function_exists('soren_get_posts')):
 
-	function soren_post_list($category = '', $num = 5){
+	function soren_post_list($category = '', $num = 5, $more = false){
 
 		$args = array(
 			'posts_per_page' => $num,
@@ -31,7 +31,9 @@ if (!function_exists('soren_get_posts')):
 
 					the_excerpt();
 
-					?><a class="soren-read-more" href="<?php the_permalink();?>">More</a><?php
+					if ($more):
+						?><a class="soren-read-more" href="<?php the_permalink();?>">More</a><?php
+					endif;
 
 				?></article><?php
 
