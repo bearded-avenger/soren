@@ -32,6 +32,8 @@ class sorenThemeFunctions {
 		require_once(SOREN_THEME_DIR.'/inc/components/component-post-author.php');
 		require_once(SOREN_THEME_DIR.'/inc/components/component-post-nav.php');
 		require_once(SOREN_THEME_DIR.'/inc/components/component-pagination.php');
+		require_once(SOREN_THEME_DIR.'/inc/components/component-get-posts.php');
+
 
 		if(!class_exists('wp_less')){
 			require_once( SOREN_THEME_DIR.'/inc/wp-less.php' );
