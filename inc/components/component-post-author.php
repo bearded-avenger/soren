@@ -27,7 +27,7 @@ if (!function_exists('soren_post_author')):
         $author_desc = get_the_author_meta('description', $post->post_author);
         $google_profile = get_the_author_meta( 'google_profile' );
 
-        $author = (true == $link) ? sprintf('<h6 class="media-heading"><a href="%s">%s</a></h6>', $author_url, $author_name) : sprintf('<h6 class="media-heading">%s</h6>', $author_name);
+        $author = (true == $link) ? sprintf('<h6 class="media-heading"><a class="soren-fader" href="%s">%s</a></h6>', $author_url, $author_name) : sprintf('<h6 class="media-heading">%s</h6>', $author_name);
 
         if (true == $clean) { ?>
 
