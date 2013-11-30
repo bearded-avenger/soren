@@ -1,9 +1,11 @@
+= 1.0 =
+* public release
+
 = 0.9.1 =
 * minified customizer script
 * ready for translation
 * added $more arg for get posts to return more link or not
 * added soren_currently_viewing to show what’s being shown like categories, author, etc
-* 
 
 = 0.9 =
 * swapped slimbox for swipebox due to slim box not being responsive by default
