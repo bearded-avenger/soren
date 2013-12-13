@@ -49,8 +49,8 @@ jQuery(document).ready(function() {
 
 			var yBgPosition = Math.round((offset - scrollTop) * settings.speed);
 
-                        // Apply the Y Background Position to Set the Parallax Effect
-    			$this.css('background-position', 'center ' + yBgPosition + 'px');
+                // Apply the Y Background Position to Set the Parallax Effect
+    			$this.css({'transform':'translate3d(0px,' + yBgPosition + 'px, 0px)'});
 
         	});
         });

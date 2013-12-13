@@ -1,5 +1,6 @@
 = 1.0.1 =
 * added soren-fader class to soren_get_posts and soren_post_author anchors
+* parallax performance optimizations
 
 = 1.0 =
 * public release
