@@ -14,11 +14,11 @@ License:      MIT
 ! defined( 'ABSPATH' ) AND exit;
 
 // load the autoloader if it's present 
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	require __DIR__ . '/vendor/autoload.php';
-} else if ( file_exists( __DIR__.'/vendor/leafo/lessphp/lessc.inc.php' ) ) {
+if ( file_exists( SOREN_THEME_DIR. '/inc/vendor/autoload.php' ) ) {
+	require SOREN_THEME_DIR. '/inc/vendor/autoload.php';
+} else if ( file_exists( SOREN_THEME_DIR.'/inc/vendor/leafo/lessphp/lessc.inc.php' ) ) {
 	// load LESS parser
-	require_once( __DIR__.'/vendor/leafo/lessphp/lessc.inc.php' );
+	require_once( SOREN_THEME_DIR.'/inc/vendor/leafo/lessphp/lessc.inc.php' );
 }
 
 if ( ! class_exists( 'wp_less' ) ) {
